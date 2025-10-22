@@ -18,6 +18,12 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Home Page!')
 })
 
+app.get('/api/data', (req, res) => {
+  res.json({
+    message: 'Data retrieved successfully!',
+  })
+})
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
