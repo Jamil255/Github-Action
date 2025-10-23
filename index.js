@@ -24,7 +24,12 @@ app.get('/api/data', (req, res) => {
   })
 })
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+// Export the app for testing
+export default app
+
+// Start server only if this file is run directly (not imported)
+if (import.meta.url === `file://${process.argv[1]}`) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+  })
+}
