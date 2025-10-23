@@ -1,11 +1,11 @@
-const request = require('supertest')
-const express = require('express')
+import request from 'supertest'
+import express, { json } from 'express'
 
 // Create the app directly for testing
 const app = express()
 
 // Middleware to parse JSON
-app.use(express.json())
+app.use(json())
 
 // GET API endpoint
 app.get('/api', (req, res) => {
