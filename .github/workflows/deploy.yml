@@ -1,4 +1,4 @@
-name: integration
+name: deploy
 on:
     push:
         branches: ["main"]
