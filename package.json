@@ -5,9 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node init && nodemon index.js",
     "test": "jest --passWithNoTests",
-    "build": "npm test"
+    "build": "node init && npm test"
   },
   "keywords": [],
   "author": "",
