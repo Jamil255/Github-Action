@@ -9,7 +9,17 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v4
-            - run: docker build . -t jamil255/github-action
-            - run: echo "${{secrets.DOCKERHUB_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
-            - run: docker push jamil255/github-action:latest
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Log in to Docker Hub
+              uses: docker/login-action@v3
+              with:
+                  username: ${{ secrets.DOCKERHUB_USERNAME }}
+                  password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+            - name: Build Docker image
+              run: docker build . -t jamil255/github-action:latest
+
+            - name: Push to Docker Hub
+              run: docker push jamil255/github-action:latest
