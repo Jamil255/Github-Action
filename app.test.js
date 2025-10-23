@@ -1,6 +1,6 @@
-import request from 'supertest'
-import express, { json } from 'express'
-
+const request = require('supertest')
+const express = require('express')
+const { json } = require('body-parser')
 // Create the app directly for testing
 const app = express()
 
