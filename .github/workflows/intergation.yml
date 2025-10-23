@@ -1,5 +1,4 @@
-name: Node.js CI
-
+name: integration
 on:
   push:
     branches: [ "main" ]

@@ -1,0 +1,13 @@
+name: integration
+on:
+    push:
+        branches: ["main"]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: docker build -t jamil255/github-action .
+            - run: echo "${{secrets.DOCKER_PASS}}" | docker login -u ${{secrets.DOCKER_USER_NAME}} --password-stdin
+            - run: docker push jamil255/github-action
